@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAFNIA RESTAURANT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script type="module">
+        let orderItems = [];
+        
+        function addToOrder(dishName, price) {
+            orderItems.push({ name: dishName, price: price });
+            console.log(`Order added: ${dishName} - $${price}`);
+            updateOrderSummary();
+        }
+
+        function updateOrderSummary() {
+            const totalItems = orderItems.length;
+            const totalPrice = orderItems.reduce((sum, item) => sum + item.price, 0);
+
+            document.getElementById('total-items').textContent = totalItems;
+            document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+        }
+
+        function finalizeOrder() {
+            console.log('Order finalized');
+            displayOrderInBilling();
+            orderItems = [];
+            updateOrderSummary();
+
+            // Smoothly scroll to the Billing section
+            window.location.hash = '#billing';
+            
+        }
+
+        function displayOrderInBilling() {
+            const billSummary = document.getElementById('bill-summary');
+            if (orderItems.length === 0) {
+                billSummary.innerHTML = '<p>No orders yet.</p>';
+                return;
+            }
+        else{
+            const orderList = orderItems.map(item => `<li>${item.name} - $${item.price.toFixed(2)}</li>`).join('');
+            const totalPrice = orderItems.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+
+            billSummary.innerHTML = `
+                <ul>${orderList}</ul>
+                <p>Total Price: $${totalPrice}</p>
+            `;
+        }
+    }
+        function processPayment() {
+            console.log('Payment processed');
+            document.getElementById('bill-summary').innerHTML = '<p>Thank you for your payment!</p>';
+        }
+    </script>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">DAFNIA RESTAURANT</div>
+        <ul class="nav-links">
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#order-management">Order</a></li>
+            <li><a href="#reservation">Reservation</a></li>
+            <li><a href="#billing">Billing</a></li>
+            <li><a href="#crm">CRM</a></li>
+            <li><a href="#analytics">Analytics</a></li>
+            <li><a href="#staffs">Staffs</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to DAFNIA RESTAURANT</h1>
+        <p>Delicious food, outstanding service!</p>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="chicken-tikka.png" alt="Dish">
+                <h3>Dish 1</h3>
+                <p>Price: $12.99</p>
+                <button onclick="addToOrder('Dish 1', 12.99)">Order</button>
+            </div>
+            <div class="menu-item">
+                <img src="chicken-tikka.png" alt="Dish">
+                <h3>Dish 2</h3>
+                <p>Price: $12.99</p>
+                <button onclick="addToOrder('Dish 2', 12.99)">Order</button>
+            </div>
+            <div class="menu-item">
+                <img src="chicken-tikka.png" alt="Dish">
+                <h3>Dish 3</h3>
+                <p>Price: $12.99</p>
+                <button onclick="addToOrder('Dish 3', 12.99)">Order</button>
+            </div>
+            <div class="menu-item">
+                <img src="chicken-tikka.png" alt="Dish">
+                <h3>Dish 4</h3>
+                <p>Price: $12.99</p>
+                <button onclick="addToOrder('Dish 4', 12.99)">Order</button>
+            </div>
+        </div>
+    </section>
+
+    
+     <!-- Order Management Section -->
+     <section id="order-management">
+        <h2>Order Management</h2>
+        <div id="order-list">
+            <p>No orders placed yet.</p>
+        </div>
+        
+        <div id="order-summary">
+            <h3>Order Summary</h3>
+            <div class="summary-details">
+                <p>Total Items: <span id="total-items">0</span></p>
+                <p>Total Price: $<span id="total-price">0.00</span></p>
+            </div>
+            <textarea id="special-request" placeholder="Any special requests?" rows="3"></textarea>
+            <button class="finalize-btn" onclick="finalizeOrder()">Finalize Order</button>
+        </div>
+    </section>
+
+    
+    <!-- Reservation Section -->
+<section id="reservation">
+    <h2>Reservation and Table Management</h2>
+    <form id="reservation-form">
+        <label for="date">Date:</label>
+        <input type="date" id="date" required>
+        
+        <label for="time">Time:</label>
+        <input type="time" id="time" required>
+        
+        <label for="party-size">Party Size:</label>
+        <input type="number" id="party-size" min="1" max="20" required>
+        
+        <label for="contact">Contact Number:</label>
+        <input type="tel" id="contact" placeholder="e.g., 123-456-7890" required>
+        
+        <button type="submit">Reserve a Table</button>
+    </form>
+</section>
+
+
+    
+<!-- Billing Section -->
+<section id="billing">
+    <h2>Billing</h2>
+    <div id="bill-summary">
+        <div class="order-item">
+            <span class="item-name">Item 1</span>
+            <span class="item-price">$10.00</span>
+        </div>
+        <div class="order-item">
+            <span class="item-name">Item 2</span>
+            <span class="item-price">$15.00</span>
+        </div>
+        <div class="order-item total">
+            <span class="item-name">Total</span>
+            <span class="item-price">$25.00</span>
+        </div>
+        <p id="no-orders" style="display: none;">No orders yet.</p> <!-- Hide this by default -->
+    </div>
+    <button class="payment-button" onclick="processPayment()">Process Payment</button>
+</section>
+
+
+    <!-- CRM Section -->
+    <section id="crm">
+        <h2>Customer Relationship Management (CRM)</h2>
+        <form id="feedback-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" required>
+            <label for="feedback">Your Feedback:</label>
+            <textarea id="feedback" required></textarea>
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </section>
+
+    <!-- Analytics Section -->
+    <section id="analytics">
+        <h2>Reporting & Analytics</h2>
+        <div>
+            <button onclick="generateReport()">Generate Sales Report</button>
+            <div id="report-output"></div>
+        </div>
+    </section>
+
+    <!-- Staff Management Section -->
+    <section id="staffs">
+        <h2>Staff Management</h2>
+        <form id="staff-form">
+            <label for="staff-name">Staff Name:</label>
+            <input type="text" id="staff-name" required>
+            <label for="joining-date">Joining Date:</label>
+            <input type="date" id="joining-date" required>
+            <label for="job-role">Job Role:</label>
+            <input type="text" id="job-role" required>
+            <button type="button" onclick="addStaff()">Add Staff</button>
+        </form>
+        
+        <div id="staff-list">
+            <h3>Current Staff</h3>
+            <ul>
+                <li>John Doe - Joined on: 2023-05-12, Job: Chef</li>
+                <li>Jane Smith - Joined on: 2023-06-20, Job: Manager</li>
+            </ul>
+        </div>
+    </section>
+    
+    <script src="main.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

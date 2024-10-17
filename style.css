@@ -1,0 +1,585 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Modern, clean font */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color:#0A0A0A; /* Bright coral color */
+    padding: 15px 20px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ffde59; /* Yellow for hover */
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('resturant.png') center/cover no-repeat;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    flex-direction: column;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Menu Section */
+.menu {
+    padding: 50px;
+    background-color: #edb80b; /* Light beige background */
+    text-align: center;
+}
+
+.menu h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #070707;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.menu-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.menu-item img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.menu-item h3 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: #333;
+}
+
+.menu-item p {
+    font-size: 1.1rem;
+    color: #777;
+    margin: 10px 0;
+}
+
+.menu-item button {
+    background-color: #ffde59; /* Yellow button */
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.menu-item button:hover {
+    background-color: #ffbd44;
+}
+
+/* Reservation Section */
+#reservation-section {
+    padding: 40px;
+    background-color:  #edb80b; 
+    text-align: center;
+    margin: 50px auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Align with the width of other modules */
+}
+
+#reservation-section h2 {
+    font-size: 2rem;
+    color: #00796b;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto; /* Center the form horizontally */
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+#reservation-form label {
+    font-weight: 600;
+    color: #37474f;
+    font-family: 'Roboto', sans-serif;
+}
+
+#reservation-form input[type="date"],
+#reservation-form input[type="time"],
+#reservation-form input[type="number"],
+#reservation-form input[type="tel"] {
+    padding: 10px;
+    border: 1px solid #b0bec5;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+#reservation-form input:focus {
+    border-color: #00796b;
+    outline: none;
+}
+
+#reservation-form button {
+    background-color: #ffde59;
+    color: rgb(255, 255, 255);
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+#reservation-form button:hover {
+    background-color: #ffbd44;
+}
+
+/* Make it responsive */
+@media (max-width: 768px) {
+    #reservation-section {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+/* Billing Section Styles */
+#billing {
+    padding: 40px;
+    background-color:  #fffae9; 
+    text-align: center;
+    margin: 50px auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    font-family: Arial, sans-serif; /* Font family */
+}
+
+#billing h2 {
+    color: #333; /* Darker color for the heading */
+    margin-bottom: 15px; /* Space below the heading */
+    text-align: center; /* Centered heading */
+}
+
+#bill-summary {
+    background-color: #fff; /* White background for summary */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Padding inside the summary */
+    text-align: center; /* Centered text */
+    min-height: 50px; /* Minimum height */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Order item styles */
+.order-item {
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space between item name and price */
+    padding: 10px 0; /* Padding for spacing */
+    border-bottom: 1px solid #eee; /* Separator line */
+}
+
+.order-item:last-child {
+    border-bottom: none; /* Remove bottom border for last item */
+}
+
+.item-name {
+    font-weight: bold; /* Bold for item names */
+    color: #555; /* Dark color for item names */
+}
+
+.item-price {
+    color: #28a745; /* Green color for prices */
+}
+
+/* Total item styles */
+.total {
+    font-size: 18px; /* Larger font size for total */
+    font-weight: bold; /* Bold for total */
+    color: #333; /* Dark color for total */
+}
+
+.no-orders {
+    color: #888; /* Grey color for no orders text */
+    font-style: italic; /* Italic style */
+}
+
+/* Payment button styles */
+.payment-button {
+    background-color: #28a745; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for button */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners for the button */
+    font-size: 16px; /* Font size for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+    display: block; /* Block level for centering */
+    margin: 20px auto; /* Center the button */
+    width: 200px; /* Fixed width */
+}
+
+.payment-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+
+/* Billing, CRM & Analytics */
+section {
+    padding: 40px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #ff6363;
+}
+
+button {
+    background-color: #ffde59; /* Default button style */
+    color: #333;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ffbd44;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 1rem;
+}
+/* Order Management Section */
+#order-management {
+    padding: 30px;
+    background-color: #f8f8ff;
+    margin: 50px auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+}
+
+#order-management h2 {
+    font-size: 2rem;
+    color: #ff6363;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#order-list {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+#order-list p {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-item h4 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.order-item .item-details {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.order-item .remove-btn {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.order-item .quantity-adjust {
+    display: flex;
+    align-items: center;
+}
+
+.order-item .quantity-adjust button {
+    background-color: #ffbd44;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.order-item .quantity-adjust input {
+    width: 40px;
+    text-align: center;
+    margin: 0 10px;
+}
+
+/* Order Summary Section */
+#order-summary {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+#order-summary h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#order-summary .summary-details {
+    margin-bottom: 20px;
+}
+
+#order-summary p {
+    font-size: 1.1rem;
+    color: #444;
+}
+
+#special-request {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+.finalize-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.finalize-btn:hover {
+    background-color: #218838;
+}
+/* Staff Management Section */
+#staff-management {
+    padding: 30px;
+    background: linear-gradient(135deg, #f4f9f9, #e0f7fa);
+    border-radius: 10px;
+    margin-top: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#staff-management h2 {
+    color: #00796b;
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+}
+
+
+
+#staff-form label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-family: 'Roboto', sans-serif;
+    color: #37474f;
+}
+
+
+
+#staff-form input:focus {
+    border-color: #00796b;
+    outline: none;
+}
+
+#staff-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* Make the form smaller */
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+#staff-form input {
+    padding: 10px;
+    border: 1px solid #b0bec5;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    transition: border-color 0.3s ease;
+    max-width: 100%; /* Ensure it stays within the form */
+}
+
+#staff-form button {
+    background-color: #00796b;
+    color: white;
+    padding: 10px 0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Button width matches the form width */
+}
+
+#staff-form button:hover {
+    background-color: #004d40;
+}
+
+#staff-list {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e0f2f1;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+#staff-list h3 {
+    font-size: 24px;
+    color: #00796b;
+    margin-bottom: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#staff-list ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#staff-list ul li {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#staff-list ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.staff-info {
+    font-family: 'Roboto', sans-serif;
+    color: #455a64;
+}
+
+.staff-info strong {
+    color: #00796b;
+}
+
+.staff-role {
+    background-color: #00796b;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
